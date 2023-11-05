@@ -6,11 +6,11 @@
 {% if selected_menu == "home" %}
     <a style="font-family: FZYaoTi;color: red;font-size: 40pt;">熱門書籍</a>
     {% elif selected_menu == "qa" %}
-        <h3 style='font-family:標楷體;font-size: 25pt;'>常見問答</a>
+        <h3 style='font-family:標楷體;font-size: 32pt;'>常見問答</a>
     {% elif selected_menu == "activity" %}
-        <h3 style='font-family:標楷體;font-size: 25pt;'>活動相關事項</a>
+        <h3 style='font-family:標楷體;font-size: 32pt;'>活動相關事項</a>
     {% elif selected_menu == "rule" %}
-        <h3 style='font-family:標楷體;font-size: 25pt;'>圖書館須注意哪些事項?</a>
+        <h3 style='font-family:標楷體;font-size: 32pt;'>圖書館須注意哪些事項?</a>
     {% endif %}
 {% endblock headmessage %}
 {% block content %} <!--顯示區 物件導向去處理-->
@@ -41,9 +41,9 @@
         <div class='card'> 
             <div class='card-body' style='background-color:#ffffdd'> 
                 <p>
-                Q:{{ function1.question }}
+                <a style="font-size: 28pt;">Q:{{ function1.question }}</a>
                 <br>
-                A:{{function1.answer}} 
+                <a style="font-size: 20pt;">A:{{function1.answer}} </a>
                 </p>
             </div>
         </div>
@@ -54,12 +54,12 @@
     <div class='card'> 
         <div class='card-header' style="background-color:orange;">
             <p style='font-family:微軟正黑體;font-size:14pt;font-weight:bold;'>
-                <a href='/function2/{{function2.slug3}}/'>{{function2.activity}}</a>
+                <a href='/function2/{{function2.slug3}}/' style="font-size: 20pt;">{{function2.activity}}</a>
             </p>
         </div>
         <div class='card-body' style='background-color:#ffffdd'> 
             <p>
-            活動對象:{{ function2.activitypeople | truncatechars:40 }} 
+            <a style="font-size: 23pt;">活動對象:{{ function2.activitypeople | truncatechars:40 }}</a> 
             </p>
         </div>
     </div>
@@ -70,7 +70,7 @@
     <div class='card'> 
         <div class='card-header' style="background-color:orange;">
             <p style='font-family:微軟正黑體;font-size:14pt;font-weight:bold;'>
-                <a href='/function/{{function.slug1}}/'>規則{{function.id}}</a>
+                <a href='/function/{{function.slug1}}/' style="font-size: 23pt;">規則{{function.id}}</a>
             </p>
         </div>
     </div>
