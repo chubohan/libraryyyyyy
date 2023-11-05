@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>查詢結果</title>
+</head>
+<body>
+    <h1>查詢結果</h1>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} - {{ book.author }} ({{ book.publishing }})</li>
+        {% endfor %}
+       
+    </ul>
+    <a href="/">返回搜索</a>
+</body>
+</html>
