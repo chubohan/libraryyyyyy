@@ -37,3 +37,10 @@ class Function2(models.Model):
     slug3 = models.CharField(max_length=200, default='your_default_value_here')
     def __str__(self):
         return self.activity
+
+
+class SearchKeyword(models.Model):
+    keyword = models.TextField()
+
+    def __str__(self):
+        return self.keyword

@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from mysite.models import Post,Function,Function1,Function2
+from mysite.models import Post,Function,Function1,Function2,SearchKeyword
 from datetime import datetime
 from django.shortcuts import redirect
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_protect
+
 # Create your views here.
 def homepage(request):
     selected_menu = request.GET.get('menu','home') #預設
@@ -44,7 +47,14 @@ def function(request, slug):
         return render(request, 'rule.html', {'ru': ru})
     except Function.DoesNotExist:
         return redirect("/") 
-    
+        
+def search_books(request):
+    if request.method == 'GET':
+        search_query = request.GET.get('keyword', '')
+        books = Post.objects.filter(title__icontains=search_query)
+        return render(request, 'search.html', {'books': books})
+    else:
+        return render(request, 'search.html', {'books': []})
 
 '''
 function1=Function1.objects.all()
@@ -55,4 +65,5 @@ function1=Function1.objects.all()
         return render(request, 'book.html', {'book': book})
     except Book1.DoesNotExist:
         return redirect("/") 
+
 '''

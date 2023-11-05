@@ -1,5 +1,6 @@
 from django.contrib import admin
-from mysite.models import Post,Function,Function1,Function2
+from mysite.models import Post,Function,Function1,Function2,SearchKeyword
+admin.site.register(SearchKeyword)
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):

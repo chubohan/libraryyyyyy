@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mysite import views as mv
+from mysite import views 
+from mysite.views import search_books
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',mv.homepage,name='homepage'), #連到view的homepage
-    path('post/<slug:slug>/',mv.showpost,name="showpost"),
-    path('function1/<slug:slug>/', mv.function1, name='function1'),
-    path('function2/<slug:slug>/', mv.function2, name='function2'),
-    path('function/<slug:slug>/', mv.function, name='function'),
+    path('',views.homepage,name='homepage'), #連到view的homepage
+    path('post/<slug:slug>/',views.showpost,name="showpost"),
+    path('function1/<slug:slug>/', views.function1, name='function1'),
+    path('function2/<slug:slug>/', views.function2, name='function2'),
+    path('function/<slug:slug>/', views.function, name='function'),
+    path('search_books/',views.search_books, name='search_books')
 ]
